@@ -1,0 +1,80 @@
+@media (max-width:1200px){
+
+    .searchbar{
+        width: 450px;
+    }
+    .video{
+        width: calc(50% - 12px);
+    }
+}
+
+/* Tablet */
+@media (max-width:1024px){
+
+    .side-bar{
+        display: 90px;
+    }
+    .searchbar{
+        width: 300px;
+    }
+    .create{
+        width: 90px;
+        font-size: 13px;
+    }
+    .videos{
+        flex: 1;
+    }
+    .button-nav{
+        margin: 0 10px;
+    }
+    
+}
+
+/* Phone */
+@media (max-width:768px){
+
+    header{
+       padding: 0 8px;
+    }
+    .left-nav{
+        gap: 10px;
+    }
+    .right-nav{
+        gap: 2px;
+        margin-right: 0;
+    }
+    .searchbar{
+        width: 32px;
+    }
+    .searchbar input{
+        display: none;
+    }
+    .searchbar button{
+        width: 40px;
+        border-radius: 999px;
+        background: none;
+        border: none;
+    }
+    .voice-search{
+        display: none;
+    }
+    .notification{
+        display: none;
+    }
+    .create{
+        height: 30px;
+        width: 90px;
+    }
+    .notification{
+        display: none;
+    }
+    .account img{
+        width: 32px;
+    }
+    .side-bar{
+        display: none;
+    }
+    .video{
+        width: 100%;
+    }    
+}
