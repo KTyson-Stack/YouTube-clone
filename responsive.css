@@ -1,0 +1,71 @@
+@media (max-width: 1200px){
+
+    .searchbar{
+        width: 450px;
+    }
+}
+
+/* Tablet */
+@media (max-width: 768px){
+
+    header{
+       padding: 0 10px;
+    }
+    .left-nav{
+        gap: 10px;
+    }
+    .right-nav{
+        gap: 2px;
+        margin-right: 8px;
+    }
+    .searchbar{
+        width: 300px;
+    }
+    .searchbar button{
+        width: 80px;
+    }
+    .create{
+        height: 30px;
+        width: 90px;
+    }
+    .account img{
+        width: 40px;
+        margin-left: 0;
+    }
+    .side-bar{
+        display: none;
+    }
+     .video{
+        flex-grow: 0; /**/
+        flex-shrink: 0;
+        flex-basis: calc((100% - 20px)/2);
+    }   
+}
+
+/* Phones */
+@media (max-width:426px) {
+
+    .searchbar{
+        width: 40px;
+    }
+    .searchbar input{
+        display: none;
+    }
+    .searchbar button{
+        width: 40px;
+        border-radius: 9999px;
+        border: none;
+        background: none;
+    }
+    .voice-search{
+        display: none;
+    }
+    .notification{
+        display: none;
+    } 
+    .video{
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 100%;
+    }
+}

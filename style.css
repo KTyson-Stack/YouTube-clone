@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensures that padding and border are included in the element's total width and height */
+
+    font-family: "Roboto", sans-serif;
+}
+h2{
+    font-size: 16px;
+    font-weight: 450;
+}
+
+/* Navbar */
+header{   
+    display: flex;      /* positioning items to grouped horizontally aligned */
+    justify-content: space-between;     /* adding space between the items to separate them accornging to the YouTube format */      
+    align-items: center;        /* vertically aligning the items to the center */
+
+    /* setting the height and padding of the navbar*/
+    height: 56px;        
+    padding: 0 15px;
+
+    /* Positioning the navbar to always stay ontop of the page*/
+    position: sticky;
+    top: 0;
+    background: rgb(255, 255, 255);
+
+    z-index: 100; /* Ensures that the navbar stays on top of other elements on the page */
+}
+.left-nav{
+    height: 40px;
+    display: flex;
+    align-items: center;
+    gap: 15px; /* spacing between the items. */
+}
+.left-nav button{
+    width: 40px;
+    height: 100%;
+    border-radius: 9999px; /* Makes the button a circle */
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.left-nav #logo{
+    cursor: pointer;
+}
+.center-nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    gap: 15px;
+}
+.searchbar{
+    display: flex;
+    width: 600px;
+    height: 100%;
+    border-radius: 10px;
+}
+.searchbar input{
+    width: 89%;
+    border: 1px solid #cccccc;
+    border-radius: 999px 0 0 999px;
+    padding-left: 10px;
+
+    font-size: 16px;
+    box-shadow: inset 1px 2px rgba(234, 232, 232, 0.4); /* Adds a shadow to the search input */
+}
+.searchbar button{
+    width: 11%;
+    border: 1px solid #cccccc;
+    border-left: none;
+    border-radius: 0 999px 999px 0;
+    background: #f1f1f1;
+}
+.voice-search{
+    width: 40px;
+    height: 100%;
+    border-radius: 9999px;
+    border: none;
+    background: #f1f1f1;
+}
+.btn{
+    cursor: pointer;
+}
+.btn:hover{
+    background: rgb(232, 232, 232);
+}
+
+.right-nav{
+    height: 40px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 7px;
+}
+.create{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    width: 100px;
+    border: none;
+    border-radius: 999px;
+
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px;
+}
+.right-nav button{
+    height: 100%;
+}
+.notification{
+    border: none;
+    width: 40px;
+    border-radius: 999px;
+    background: none;
+}
+
+.account img{
+    width: 40px;
+    border-radius: 99999px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/* main body */
+main{
+    height: calc(100vh - 56px);
+    display: flex;
+}
+
+/* side navbar */
+.side-bar{
+   display: flex;
+   flex-direction: column;
+   
+   width: 19vw;
+   height: 100%;
+
+   overflow-y: auto;
+   scrollbar-width: thin;
+}
+.category-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 15px;
+
+    border-bottom: 1px solid grey;
+}
+.category-section span{
+    display: flex;
+    align-items: center;
+
+    height: 40px;
+    border-radius: 8px;
+    
+    padding-left: 10px;
+    font-size: 14px;
+    font-weight: 350;
+    
+    cursor: pointer;
+}
+.category-section .active{
+    background: #f1f1f1;
+    font-weight: 500;
+}
+.category-section .active:hover {
+    background: rgb(205, 205, 205);
+}
+.category-section span:hover{
+    background-color: #f1f1f1;
+}
+.category-section img{
+    width: 25px;
+    margin-right: 20px;
+}
+
+.side-arrow img{
+    width: 18px;
+    height: 15px;
+    margin-left: 5px;
+}
+.subscriptions img{
+    width: 25px;
+    border-radius: 99999px;
+}
+
+.category-footer{
+    padding: 20px;
+}
+.footer-section{
+    margin-bottom: 12px;
+}
+.footer-section span{
+    font-size: 14px;
+    font-weight: 500;
+    margin-right: 5px;
+    color: #606060;
+    cursor: pointer;
+}
+
+.copyright{
+    color: #606060;
+    font-size: 12px;
+    font-weight: 350;
+}
+
+/* top buttons */
+.button-nav{
+    margin: 0 15px;
+    padding: 10px 3px;
+    
+    position: sticky;
+    top: 0;
+    background: rgb(255, 255, 255);
+    overflow-x: auto;
+    z-index: 50;
+    
+    scrollbar-width: none;
+}
+.head-buttons{
+    display: flex;
+    list-style: none;
+    gap: 12px;
+    width: max-content;
+}
+.head-buttons button{
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: none;
+    font-size: 14px;
+
+    cursor: pointer;
+    white-space: nowrap;
+}
+.active2{
+    color: white;
+    background: black;
+}
+
+/* video */
+.videos{
+    flex: 1;
+    height: 100%;
+    background: white;
+    overflow-y: auto;
+}
+.video-layout{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Aligns videos to the left. */
+    gap: 20px;
+    padding: 20px;
+}
+.video{
+    flex-grow: 0; /* Ensures the video elements do not grow */
+    flex-shrink: 0; /* Ensures the video elements do not shrink */
+    flex-basis: calc((100% - 40px)/3); /* Sets the base width of each video element to one-third of the container width minus the total gap between them. */
+    margin-bottom: 35px;
+}
+.video img{
+    width: 100%;
+    border-radius: 15px;
+}
+.information{
+    display: flex;
+    justify-content: space-between;
+
+    height: 100px;
+    cursor: pointer;
+}
+.information img{
+    width: 40px;
+    height: 40px;
+    margin: 6px 10px 0 0;
+    border-radius: 999999px;
+}
+.information button{
+    height: 40px;
+    width: 40px;
+    border-radius: 999px;
+    border: none;
+    background: none;
+}
+.information .video-title{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+    min-width: 0;
+    height: 80px;
+    margin-top: 6px;
+}
+.low-title{
+    color: #6c6c6c;
+    font-size: 14px;
+    font-weight: 450;
+}
