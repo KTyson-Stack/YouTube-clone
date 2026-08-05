@@ -1,5 +1,57 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
+/* ===== Theme variables (Light = default) ===== */
+:root{
+    --bg-page: #ffffff;
+    --bg-header: #ffffff;
+    --bg-sidebar: #ffffff;
+    --bg-card: #ffffff;
+    --bg-button: #f1f1f1;
+    --bg-button-hover: rgb(232, 232, 232);
+    --bg-hover: #f1f1f1;
+    --bg-active: #f1f1f1;
+    --bg-active-hover: rgb(205, 205, 205);
+    --text-primary: #0f0f0f;
+    --text-secondary: #606060;
+    --text-muted: #6c6c6c;
+    --border-color: #cccccc;
+    --border-section: grey;
+    --search-bg: #ffffff;
+    --search-border: #cccccc;
+    --search-button-bg: #f1f1f1;
+    --search-shadow: inset 1px 2px rgba(234, 232, 232, 0.4);
+    --chip-bg: #f1f1f1;
+    --chip-active-bg: #000000;
+    --chip-active-text: #ffffff;
+    --icon-filter: none;
+}
+
+/* YouTube-like Dark Theme — only variables change */
+html.dark{
+    --bg-page: #0f0f0f;
+    --bg-header: #0f0f0f;
+    --bg-sidebar: #0f0f0f;
+    --bg-card: #0f0f0f;
+    --bg-button: #272727;
+    --bg-button-hover: #3f3f3f;
+    --bg-hover: #272727;
+    --bg-active: #272727;
+    --bg-active-hover: #3f3f3f;
+    --text-primary: #f1f1f1;
+    --text-secondary: #aaaaaa;
+    --text-muted: #aaaaaa;
+    --border-color: #303030;
+    --border-section: #303030;
+    --search-bg: #121212;
+    --search-border: #303030;
+    --search-button-bg: #222222;
+    --search-shadow: none;
+    --chip-bg: #272727;
+    --chip-active-bg: #f1f1f1;
+    --chip-active-text: #0f0f0f;
+    --icon-filter: invert(1);
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -7,9 +59,35 @@
 
     font-family: "Roboto", sans-serif;
 }
+
+/* Smooth theme switch (colours only — layout unchanged) */
+body,
+header,
+.side-bar,
+.videos,
+.button-nav,
+.searchbar input,
+.searchbar button,
+.voice-search,
+.create,
+.head-buttons button,
+.category-section span,
+.category-section,
+.footer-section span,
+.copyright,
+.low-title{
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+body{
+    background: var(--bg-page);
+    color: var(--text-primary);
+}
+
 h2{
     font-size: 16px;
     font-weight: 450;
+    color: var(--text-primary);
 }
 
 /* Navbar */
@@ -25,7 +103,7 @@ header{
     /* Positioning the navbar to always stay ontop of the page*/
     position: sticky;
     top: 0;
-    background: rgb(255, 255, 255);
+    background: var(--bg-header);
 
     z-index: 100; /* Ensures that the navbar stays on top of other elements on the page */
 }
@@ -61,32 +139,37 @@ header{
 }
 .searchbar input{
     width: 89%;
-    border: 1px solid #cccccc;
+    border: 1px solid var(--search-border);
     border-radius: 999px 0 0 999px;
     padding-left: 10px;
+    background: var(--search-bg);
+    color: var(--text-primary);
 
     font-size: 16px;
-    box-shadow: inset 1px 2px rgba(234, 232, 232, 0.4); /* Adds a shadow to the search input */
+    box-shadow: var(--search-shadow); /* Adds a shadow to the search input */
+}
+.searchbar input::placeholder{
+    color: var(--text-secondary);
 }
 .searchbar button{
     width: 11%;
-    border: 1px solid #cccccc;
+    border: 1px solid var(--search-border);
     border-left: none;
     border-radius: 0 999px 999px 0;
-    background: #f1f1f1;
+    background: var(--search-button-bg);
 }
 .voice-search{
     width: 40px;
     height: 100%;
     border-radius: 9999px;
     border: none;
-    background: #f1f1f1;
+    background: var(--bg-button);
 }
 .btn{
     cursor: pointer;
 }
 .btn:hover{
-    background: rgb(232, 232, 232);
+    background: var(--bg-button-hover);
 }
 
 .right-nav{
@@ -105,6 +188,8 @@ header{
     width: 100px;
     border: none;
     border-radius: 999px;
+    background: var(--bg-button);
+    color: var(--text-primary);
 
     font-size: 14px;
     font-weight: 500;
@@ -120,11 +205,39 @@ header{
     background: none;
 }
 
+/* Theme toggle — same size language as notification / menu buttons */
+.theme-toggle{
+    border: none;
+    width: 40px;
+    border-radius: 999px;
+    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+}
+.theme-toggle .material-icons{
+    font-size: 24px;
+    color: var(--text-primary);
+}
+
 .account img{
     width: 40px;
     border-radius: 99999px;
     margin-left: 10px;
     cursor: pointer;
+}
+
+/* Theme-aware monochrome icons only (opt-in).
+   Coloured assets use .brand-icon or no class — never inverted. */
+.theme-icon{
+    filter: var(--icon-filter);
+    transition: filter 0.25s ease;
+}
+
+/* Coloured YouTube brand marks — always keep original red */
+.brand-icon{
+    filter: none;
 }
 
 /* main body */
@@ -139,10 +252,41 @@ main{
    flex-direction: column;
    
    width: 19vw;
+   min-width: 200px;
    height: 100%;
+   background: var(--bg-sidebar);
+   flex-shrink: 0;
 
    overflow-y: auto;
+   overflow-x: hidden;
    scrollbar-width: thin;
+   transition: width 0.25s ease, min-width 0.25s ease;
+}
+
+/* Collapsed mini-rail (~72–90px): icons only; videos flex to fill space */
+.side-bar.collapsed{
+    width: 72px;
+    min-width: 72px;
+}
+.side-bar.collapsed .category-section{
+    padding: 8px 4px;
+    align-items: center;
+}
+.side-bar.collapsed .category-section span{
+    justify-content: center;
+    padding-left: 0;
+    width: 100%;
+    font-size: 0; /* hide text labels; icons keep their own size */
+}
+.side-bar.collapsed .category-section img{
+    margin-right: 0;
+}
+/* Hide section titles, arrows, footer, and long subscription list when collapsed */
+.side-bar.collapsed .category-section span:has(h2),
+.side-bar.collapsed .side-arrow,
+.side-bar.collapsed .category-footer,
+.side-bar.collapsed .subscriptions{
+    display: none;
 }
 .category-section{
     display: flex;
@@ -150,7 +294,7 @@ main{
     justify-content: center;
     padding: 10px 15px;
 
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid var(--border-section);
 }
 .category-section span{
     display: flex;
@@ -162,18 +306,19 @@ main{
     padding-left: 10px;
     font-size: 14px;
     font-weight: 350;
+    color: var(--text-primary);
     
     cursor: pointer;
 }
 .category-section .active{
-    background: #f1f1f1;
+    background: var(--bg-active);
     font-weight: 500;
 }
 .category-section .active:hover {
-    background: rgb(205, 205, 205);
+    background: var(--bg-active-hover);
 }
 .category-section span:hover{
-    background-color: #f1f1f1;
+    background-color: var(--bg-hover);
 }
 .category-section img{
     width: 25px;
@@ -200,12 +345,12 @@ main{
     font-size: 14px;
     font-weight: 500;
     margin-right: 5px;
-    color: #606060;
+    color: var(--text-secondary);
     cursor: pointer;
 }
 
 .copyright{
-    color: #606060;
+    color: var(--text-secondary);
     font-size: 12px;
     font-weight: 350;
 }
@@ -217,7 +362,7 @@ main{
     
     position: sticky;
     top: 0;
-    background: rgb(255, 255, 255);
+    background: var(--bg-page);
     overflow-x: auto;
     z-index: 50;
     
@@ -234,20 +379,22 @@ main{
     border-radius: 8px;
     border: none;
     font-size: 14px;
+    background: var(--chip-bg);
+    color: var(--text-primary);
 
     cursor: pointer;
     white-space: nowrap;
 }
-.active2{
-    color: white;
-    background: black;
+.head-buttons button.active2{
+    color: var(--chip-active-text);
+    background: var(--chip-active-bg);
 }
 
 /* video */
 .videos{
     flex: 1;
     height: 100%;
-    background: white;
+    background: var(--bg-page);
     overflow-y: auto;
 }
 .video-layout{
@@ -262,6 +409,7 @@ main{
     flex-shrink: 0; /* Ensures the video elements do not shrink */
     flex-basis: calc((100% - 40px)/3); /* Sets the base width of each video element to one-third of the container width minus the total gap between them. */
     margin-bottom: 35px;
+    background: var(--bg-card);
 }
 .video img{
     width: 100%;
@@ -286,6 +434,10 @@ main{
     border-radius: 999px;
     border: none;
     background: none;
+    color: var(--text-primary);
+}
+.information .material-icons{
+    color: var(--text-primary);
 }
 .information .video-title{
     display: flex;
@@ -297,7 +449,7 @@ main{
     margin-top: 6px;
 }
 .low-title{
-    color: #6c6c6c;
+    color: var(--text-muted);
     font-size: 14px;
     font-weight: 450;
 }

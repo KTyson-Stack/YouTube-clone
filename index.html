@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Apply saved theme before paint to avoid a light→dark flash -->
+    <script src="theme.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="responsive.css">
@@ -13,7 +15,9 @@
 
     <header>
         <div class="left-nav">
-            <button class="btn"><img src="recourses/menu.svg" alt=""></button>
+            <button type="button" class="btn" id="menu-toggle" aria-label="Toggle sidebar" title="Menu">
+                <img class="theme-icon" src="recourses/menu.svg" alt="">
+            </button>
             <img src="recourses/logo.svg" alt="Logo" id="logo">
         </div>
 
@@ -21,22 +25,26 @@
             <div class = "searchbar"> 
                 <input type="text" placeholder="Search">
                 <button class="btn">
-                    <img src="recourses/search.svg" alt="search-icon">
+                    <img class="theme-icon" src="recourses/search.svg" alt="search-icon">
                 </button>    
             </div>
             <button class="voice-search btn">
-                <img src="recourses/mic.svg" alt="mic-icon">
+                <img class="theme-icon" src="recourses/mic.svg" alt="mic-icon">
             </button>
                 
         </div>
 
         <div class="right-nav">
             <button class="create btn">
-                <img src="recourses/create.svg" alt="">
+                <img class="theme-icon" src="recourses/create.svg" alt="">
                 Create
             </button>
+            <!-- Toggles Light / Dark; preference saved in localStorage -->
+            <button type="button" class="theme-toggle btn" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">
+                <i class="material-icons" id="theme-toggle-icon">dark_mode</i>
+            </button>
             <button class="notification btn">
-                <img src="recourses/notification.svg" alt="notification-icon">
+                <img class="theme-icon" src="recourses/notification.svg" alt="notification-icon">
             </button>
             <div class="account">
                 <img src="recourses/profile-pic.png" alt="account">
@@ -50,11 +58,11 @@
             <!-- opening section -->
             <div class="category-section">
                 <span class="active">
-                    <img src="recourses/home-icon.svg" alt="home-icon">
+                    <img class="theme-icon" src="recourses/home-icon.svg" alt="home-icon">
                     Home
                 </span>
                 <span>
-                    <img src="recourses/shorts.svg" alt="shorts-icon">
+                    <img class="theme-icon" src="recourses/shorts.svg" alt="shorts-icon">
                     Shorts
                 </span>
             </div>
@@ -64,7 +72,7 @@
                <span>
                     <h2>Subscriptions</h2>
                     <div class="side-arrow">
-                        <img src="recourses/side-arrow.svg" alt="side-arrow">
+                        <img class="theme-icon" src="recourses/side-arrow.svg" alt="side-arrow">
                     </div>
                 </span>
 
@@ -104,7 +112,7 @@
                 </span>
 
                 <span>
-                    <img src="recourses/down-arrow.svg" alt="show-more-icon">
+                    <img class="theme-icon" src="recourses/down-arrow.svg" alt="show-more-icon">
                     Show more
                 </span>
             </div>
@@ -114,47 +122,47 @@
                 <span>
                     <h2>You</h2>
                     <div class="side-arrow">
-                        <img src="recourses/side-arrow.svg" alt="side-arrow">
+                        <img class="theme-icon" src="recourses/side-arrow.svg" alt="side-arrow">
                     </div>
                 </span>
 
                 <span>
-                    <img src="recourses/channel.svg" alt="your-channel-icon">
+                    <img class="theme-icon" src="recourses/channel.svg" alt="your-channel-icon">
                     Your channel
                 </span>
 
                 <span>
-                    <img src="recourses/history.svg" alt="history-icon">
+                    <img class="theme-icon" src="recourses/history.svg" alt="history-icon">
                     History
                 </span>
 
                 <span>
-                    <img src="recourses/playlists.svg" alt="playlist-icon">
+                    <img class="theme-icon" src="recourses/playlists.svg" alt="playlist-icon">
                     Playlists
                 </span>
 
                 <span>
-                    <img src="recourses/watch-later.svg" alt="watch-later-icon">
+                    <img class="theme-icon" src="recourses/watch-later.svg" alt="watch-later-icon">
                     Watch Later
                 </span>
 
                 <span>
-                    <img src="recourses/liked-videos.svg" alt="liked-videos-icon">
+                    <img class="theme-icon" src="recourses/liked-videos.svg" alt="liked-videos-icon">
                     Liked videos
                 </span>
 
                 <span>
-                    <img src="recourses/your-videos.svg" alt="your-videos-icon">
+                    <img class="theme-icon" src="recourses/your-videos.svg" alt="your-videos-icon">
                     Your videos
                 </span>
 
                 <span>
-                    <img src="recourses/downloads.svg" alt="downloads-icon">
+                    <img class="theme-icon" src="recourses/downloads.svg" alt="downloads-icon">
                     Downloads
                 </span>
 
                 <span>
-                    <img src="recourses/down-arrow.svg" alt="show-more-icon">
+                    <img class="theme-icon" src="recourses/down-arrow.svg" alt="show-more-icon">
                     Show more
                 </span>
             </div>
@@ -164,22 +172,22 @@
                 <span><h2>Explore</h2></span>
 
                 <span>
-                    <img src="recourses/music.svg" alt="music-icon">
+                    <img class="theme-icon" src="recourses/music.svg" alt="music-icon">
                     Music
                 </span>
 
                 <span>
-                    <img src="recourses/gaming.svg" alt="gaming-icon">
+                    <img class="theme-icon" src="recourses/gaming.svg" alt="gaming-icon">
                     Gaming
                 </span>
 
                 <span>
-                    <img src="recourses/news.svg" alt="news-icon">
+                    <img class="theme-icon" src="recourses/news.svg" alt="news-icon">
                     News
                 </span>
 
                 <span>
-                    <img src="recourses/down-arrow.svg" alt="show-more-icon">
+                    <img class="theme-icon" src="recourses/down-arrow.svg" alt="show-more-icon">
                     Show more
                 </span>
             </div>
@@ -189,17 +197,17 @@
                 <span><h2>More from YouTube</h2></span>
 
                 <span>
-                    <img src="recourses/yt-premium.svg" alt="youtube-premium-icon">
+                    <img class="brand-icon" src="recourses/yt-premium.svg" alt="youtube-premium">
                     YouTube Premium
                 </span>
 
                 <span>
-                    <img src="recourses/yt-music.svg" alt="youtube-music-icon">
+                    <img class="brand-icon" src="recourses/yt-music.svg" alt="youtube-music">
                     YouTube Music
                 </span>
 
                 <span>
-                    <img src="recourses/yt-kids.svg" alt="youTube-kids-icon">
+                    <img class="brand-icon" src="recourses/yt-kids.svg" alt="youTube-kids">
                     YouTube Kids
                 </span>
             </div>
@@ -207,7 +215,7 @@
             <!-- report history section -->
             <div class="category-section">
                 <span>
-                    <img src="recourses/flag.svg" alt="flag-icon">
+                    <img class="theme-icon" src="recourses/flag.svg" alt="flag-icon">
                     Report history
                 </span>
             </div>
@@ -415,6 +423,7 @@
 
         </section>
     </main>
-    
+
+    <script src="sidebar.js" defer></script>
 </body>
 </html>

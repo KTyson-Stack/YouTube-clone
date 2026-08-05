@@ -13,7 +13,7 @@
 
     <header>
         <div class="left-nav">
-            <button class="btn"><img src="recourses/menu.svg" alt=""></button>
+            <button class="btn"><img src="recourses/menu.svg" alt="menu-icon"></button>
             <img src="recourses/logo.svg" alt="Logo" id="logo">
         </div>
 
@@ -30,13 +30,17 @@
                 
         </div>
 
-        <div class="right-nav">
+         <div class="right-nav">
             <button class="create btn">
-                <img src="recourses/create.svg" alt="">
+                <img class="theme-icon" src="recourses/create.svg" alt="">
                 Create
             </button>
+            <!-- Toggles Light / Dark; preference saved in localStorage -->
+            <button type="button" class="theme-toggle btn" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">
+                <i class="material-icons" id="theme-toggle-icon">dark_mode</i>
+            </button>
             <button class="notification btn">
-                <img src="recourses/notification.svg" alt="notification-icon">
+                <img class="theme-icon" src="recourses/notification.svg" alt="notification-icon">
             </button>
             <div class="account">
                 <img src="recourses/profile-pic.png" alt="account">
@@ -189,17 +193,17 @@
                 <span><h2>More from YouTube</h2></span>
 
                 <span>
-                    <img src="recourses/yt-premium.svg" alt="youtube-premium-icon">
+                    <img src="recourses/yt-premium.svg" alt="youtube-premium" >
                     YouTube Premium
                 </span>
 
                 <span>
-                    <img src="recourses/yt-music.svg" alt="youtube-music-icon">
+                    <img src="recourses/yt-music.svg" alt="youtube-music" >
                     YouTube Music
                 </span>
 
                 <span>
-                    <img src="recourses/yt-kids.svg" alt="youTube-kids-icon">
+                    <img src="recourses/yt-kids.svg" alt="youTube-kids" >
                     YouTube Kids
                 </span>
             </div>
